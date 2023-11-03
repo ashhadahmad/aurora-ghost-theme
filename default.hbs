@@ -1,40 +1,28 @@
 <!DOCTYPE html>
-<html lang="{{@site.locale}}">
+<html lang="{{@site.locale}}" class="dark">
 
 <head>
-
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href='{{asset "build/tailwind.css"}}' />
-
     <title>{{meta_title}}</title>
-
     {{!-- Outputs important meta data and settings, should always be in
-
     <head> --}}
+    {{#is "home"}}
+        {{#if @site.cover_image}}
+            <link rel="preload" as="image" href="{{@site.cover_image}}">
+        {{/if}}
+    {{/is}}
 
-        {{ghost_head}}
-
-    </head>
-
-<body class="{{body_class}}  bg-slate-800">
-
-
+    {{ghost_head}}
+</head>
+<body class="{{body_class}} bg-white">
     {{> header}}
-
-
-
     {{{body}}}
-
-
-
     {{> footer}}
-
-
     {{ghost_foot}}
     {{!-- Outputs important scripts - should always be included before closing body tag --}}
-
 </body>
-
+ 
 </html>
