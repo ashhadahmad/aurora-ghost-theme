@@ -56,7 +56,7 @@
             </div>
         </div>
 
-        <div class="hidden lg:hidden flex flex-col gap-4 px-4 py-3" id="mobile-menu">
+        <div class="hidden lg:hidden flex-col gap-4 px-4 py-3" id="mobile-menu">
             {{navigation}}
         </div>
 
@@ -72,12 +72,14 @@
         closeBtn.classList.remove("hidden");
         openBtn.classList.add("hidden");
         mobileMenu.classList.remove("hidden");
+        mobileMenu.classList.add("flex");
     })
 
     closeBtn.addEventListener("click", function () {
         openBtn.classList.remove("hidden");
         closeBtn.classList.add("hidden");
         mobileMenu.classList.add("hidden");
+        mobileMenu.classList.remove("flex");
     });
 
     // Toggle Light Mode and Dark Mode with Tailwind

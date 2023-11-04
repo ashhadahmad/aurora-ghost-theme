@@ -12,6 +12,7 @@
     "url": "https://ashhad.in"
   },
   "keywords": [
+    "aurora-theme",
     "ashhad-custom",
     "Ashhad Ahmad",
     "ghost",
@@ -35,36 +36,49 @@
         "type": "text",
         "default": "None"
       },
+      "youtube_url": {
+        "type": "text",
+        "default": "None"
+      },
       "instagram_url": {
         "type": "text",
         "default": "None"
       },
-      "copyright": {
+      "twitter_url": {
         "type": "text",
-        "default": "Copyright @iam_ashhad"
+        "default": "None"
       },
-      "copyright_url": {
+      "footer_text": {
+        "type": "text"
+      },
+      "primary_header": {
         "type": "text",
-        "default": "https://ashhad.in/edited"
+        "default": "Welcome to my site",
+        "group": "homepage"
+      },
+      "secondary_header": {
+        "type": "text",
+        "default": "Subscribe below to receive my latest posts directly in your inbox",
+        "group": "homepage"
       }
     },
     "image_sizes": {
-      "xxs": {
-        "width": 30
-      },
       "xs": {
-        "width": 100
+        "width": 150
       },
       "s": {
         "width": 300
       },
       "m": {
-        "width": 600
+        "width": 720
       },
       "l": {
-        "width": 1000
+        "width": 960
       },
       "xl": {
+        "width": 1200
+      },
+      "xxl": {
         "width": 2000
       }
     },
