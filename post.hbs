@@ -1,32 +1,28 @@
-{{!< default}}
+{{!< default}} {{#post}} <article class="w-full text-white mx-auto my-12 {{post_class}}">
+  <h1 class="font-bold text-4xl text-gray-800 dark:text-white text-center">{{title}}</h1>
+  {{!-- <h1
+    class="font-bold text-transparent text-4xl bg-clip-text bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
+    {{title}}</h1> --}}
 
-{{#post}}
-  <article class="w-full text-white mx-auto my-12 {{post_class}}">
-    <h1 class="font-bold text-4xl text-gray-800 dark:text-white text-center">{{title}}</h1>
-    {{!-- <h1 class="font-bold text-transparent text-4xl bg-clip-text bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500" >{{title}}</h1> --}}
-
-    {{#if feature_image}}
-      <div class="flex flex-col mt-8">
-        <div class="mx-4 max-w-full lg:mx-0">
-          <img class="w-full h-full block m-auto rounded-[32px] shadow-xl select-none pointer-events-none" srcset="{{img_url feature_image size="s"}} 300w, {{img_url feature_image
-                size="m" }} 600w, {{img_url feature_image size="l" }} 1000w, {{img_url feature_image size="xl" }} 2000w"
-                sizes="(max-width: 1000px) 400px, 700px" src="{{img_url feature_image size="m"}}"
-                alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}" />
-        </div>
-
-        {{#if feature_image_caption}}
-          <p class="text-center text-gray-500">
-            {{feature_image_caption}}
-          </p>
-        {{/if}}
-      </div>
-    {{/if}}
-
-    {{content}}
-
-    <div class="mt-16">
-      {{comments}}
+  {{#if feature_image}}
+  <div class="flex flex-col mt-8">
+    <div class="mx-4 max-w-full lg:mx-0">
+      <img class="w-full block m-auto rounded-[32px] shadow-xl select-none pointer-events-none"
+        srcset="{{img_url feature_image size=" s"}} 300w, {{img_url feature_image size="m" }} 600w, {{img_url
+        feature_image size="l" }} 1000w, {{img_url feature_image size="xl" }} 2000w"
+        sizes="(max-width: 1000px) 400px, 700px" src="{{img_url feature_image size=" m"}}"
+        alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}" />
     </div>
 
+    {{#if feature_image_caption}}
+    <p class="text-center text-gray-500">
+      {{feature_image_caption}}
+    </p>
+    {{/if}}
+  </div>
+  {{/if}}
+
+  {{content}}
+
   </article>
-{{/post}}
+  {{/post}}

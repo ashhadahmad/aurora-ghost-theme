@@ -48,6 +48,10 @@
         "type": "text",
         "default": "None"
       },
+      "course_url": {
+        "type": "text",
+        "default": "None"
+      },
       "footer_text": {
         "type": "text"
       },

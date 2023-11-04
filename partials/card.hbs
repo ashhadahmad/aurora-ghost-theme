@@ -21,10 +21,23 @@
     </div> --}}
     {{!-- </div> --}}
 
+{{!-- <a href="{{url}}"
+    class="hover:bg-slate-100 dark:hover:bg-gray-900 transition fade ease-in-out cursor-pointer rounded-xl">
+    <div class="p-4">
+
+        <img class="overflow-hidden h-72 rounded-xl" src="{{feature_image}}" />
+        <p class="text-black dark:text-white font-bold text-lg pt-2"> {{title}}</p>
+        <p class="text-gray-600 dark:text-gray-400"> {{excerpt}}</p>
+    </div>
+</a> --}}
+
+
 <a href="{{url}}"
     class="hover:bg-slate-100 dark:hover:bg-gray-900 transition fade ease-in-out cursor-pointer rounded-xl">
     <div class="p-4">
-        <img class="w-full overflow-hidden h-72 rounded-xl" src="{{feature_image}}" />
+        <div class="h-72 overflow-hidden rounded-xl">
+            <img class="w-full min-h-full lg:h-full lg:w-auto overflow-hidden " src="{{feature_image}}" />
+        </div>
         <p class="text-black dark:text-white font-bold text-lg pt-2"> {{title}}</p>
         <p class="text-gray-600 dark:text-gray-400"> {{excerpt}}</p>
     </div>
