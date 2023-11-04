@@ -1,28 +1,43 @@
-<!DOCTYPE html>
 <html lang="{{@site.locale}}" class="dark">
 
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href='{{asset "build/tailwind.css"}}' />
-    <title>{{meta_title}}</title>
-    {{!-- Outputs important meta data and settings, should always be in
-    <head> --}}
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" type="text/css" href="{{asset 'build/tailwind.css'}}" />
+  <title>{{meta_title}}</title>
+  {{! Outputs important meta data and settings, should always be in
+
+  <head> }}
     {{#is "home"}}
-        {{#if @site.cover_image}}
-            <link rel="preload" as="image" href="{{@site.cover_image}}">
-        {{/if}}
+    {{#if @site.cover_image}}
+    <link rel="preload" as="image" href="{{@site.cover_image}}" />
+    {{/if}}
     {{/is}}
 
     {{ghost_head}}
-</head>
-<body class="{{body_class}} bg-white">
-    {{> header}}
-    {{{body}}}
-    {{> footer}}
+  </head>
+  <script type="text/javascript">
+    if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark')
+    } else {
+      document.documentElement.classList.remove('dark')
+    }
+  </script>
+
+<body class="bg-white dark:bg-[#0A0A0D]">
+  {{! <div class="w-screen h-screen -z-[1] "> }}
+    <div class="absolute top-0 overflow-hidden -z-10 w-screen flex justify-center select-none pointer-events-none">
+      <img src="/assets/bg/bg-top-4.png" class="max-w-6xl opacity-70" />
+    </div>
+    <div class="w-screen lg:max-w-5xl m-auto flex flex-col">
+      {{> header}}
+      {{{body}}}
+      {{> footer}}
+    </div>
+
     {{ghost_foot}}
-    {{!-- Outputs important scripts - should always be included before closing body tag --}}
+    {{! Outputs important scripts - should always be included before closing body tag }}
 </body>
- 
+
 </html>

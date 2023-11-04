@@ -1,15 +1,96 @@
-<div class="mx-auto flex flex-col bg-slate-800 ">
-<div class="flex flex-col w-[90rem]  mx-auto">
-    <div class="flex flex-row absolute top-8 right-10">
+<header class="w-full px-4 my-4 lg:px-0 box-border overflow-hidden">
+    <div
+        class="rounded-xl bg-white/30 dark:bg-slate-500/20 backdrop-blur-md border border-white/30 dark:border-gray-300/20 h-auto">
+        <div class="flex p-4 items-center">
+            <div class="pr-6">
+                {{#if @site.logo}}
+                <a href="/">
+                    <img src="{{@site.logo}}" alt="{{@site.title}}" class="h-6 cursor-pointer" />
+                </a>
+                {{else}}
+                <a href="/"
+                    class="text-gray-900 dark:text-gray-50 dark:hover:text-gray-300 hover:text-gray-600 transition fade ease-in">{{@site.title}}</a>
+                {{/if}}
+            </div>
+            <div class="flex justify-between flex-grow">
+                <div class="hidden lg:flex items-center gap-6">
+                    {{navigation}}
+                </div>
+                <div class="flex gap-4 items-center grow justify-end">
+                    <button id="sun">
+                        <svg class="text-gray-900 dark:text-gray-50 dark:hover:text-gray-300 hover:text-gray-600 transition fade ease-in fill-current w-5 h-5"
+                            viewBox="0 0 256 256">
+                            <path
+                                d="M116,32V16a12,12,0,0,1,24,0V32a12,12,0,0,1-24,0Zm80,96a68,68,0,1,1-68-68A68.07,68.07,0,0,1,196,128Zm-24,0a44,44,0,1,0-44,44A44.05,44.05,0,0,0,172,128ZM51.51,68.49a12,12,0,1,0,17-17l-12-12a12,12,0,0,0-17,17Zm0,119-12,12a12,12,0,0,0,17,17l12-12a12,12,0,1,0-17-17ZM196,72a12,12,0,0,0,8.49-3.51l12-12a12,12,0,0,0-17-17l-12,12A12,12,0,0,0,196,72Zm8.49,115.51a12,12,0,0,0-17,17l12,12a12,12,0,0,0,17-17ZM44,128a12,12,0,0,0-12-12H16a12,12,0,0,0,0,24H32A12,12,0,0,0,44,128Zm84,84a12,12,0,0,0-12,12v16a12,12,0,0,0,24,0V224A12,12,0,0,0,128,212Zm112-96H224a12,12,0,0,0,0,24h16a12,12,0,0,0,0-24Z">
+                            </path>
+                        </svg>
+                    </button>
+                    <button class="gh-search" data-ghost-search>
+                        <svg class="text-gray-900 dark:text-gray-50 dark:hover:text-gray-300 hover:text-gray-600 transition fade ease-in fill-current w-5 h-5"
+                            viewBox="0 0 256 256">
+                            <path
+                                d="M232.49,215.51,185,168a92.12,92.12,0,1,0-17,17l47.53,47.54a12,12,0,0,0,17-17ZM44,112a68,68,0,1,1,68,68A68.07,68.07,0,0,1,44,112Z">
+                            </path>
+                        </svg>
+                    </button>
 
-        <button class="dark mx-2">{{> icons/dark}}</button>
-        <button class="gh-search mx-2" data-ghost-search>{{> icons/search}}</button>
+                    <button class="lg:hidden" id="open-menu-btn">
+                        <svg class="text-gray-900 dark:text-gray-50 dark:hover:text-gray-300 hover:text-gray-600 transition fade ease-in fill-current w-5 h-5"
+                            viewBox="0 0 256 256">
+                            <path
+                                d="M228,128a12,12,0,0,1-12,12H40a12,12,0,0,1,0-24H216A12,12,0,0,1,228,128ZM40,76H216a12,12,0,0,0,0-24H40a12,12,0,0,0,0,24ZM216,180H40a12,12,0,0,0,0,24H216a12,12,0,0,0,0-24Z">
+                            </path>
+                        </svg>
+                    </button>
+
+                    <button class="hidden lg:hidden" id="close-menu-btn">
+                        <svg class="text-gray-900 dark:text-gray-50 dark:hover:text-gray-300 hover:text-gray-600 transition fade ease-in fill-current w-5 h-5"
+                            viewBox="0 0 256 256">
+                            <path
+                                d="M208.49,191.51a12,12,0,0,1-17,17L128,145,64.49,208.49a12,12,0,0,1-17-17L111,128,47.51,64.49a12,12,0,0,1,17-17L128,111l63.51-63.52a12,12,0,0,1,17,17L145,128Z">
+                            </path>
+                        </svg>
+                    </button>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="hidden lg:hidden flex flex-col gap-4 px-4 py-3" id="mobile-menu">
+            {{navigation}}
+        </div>
 
     </div>
+</header>
 
-    <div class="mx-auto my-14">
-        {{ navigation}}
-    </div>
+<script type="text/javascript">
+    const openBtn = document.getElementById("open-menu-btn");
+    const closeBtn = document.getElementById("close-menu-btn");
 
-</div>
-</div>
+    const mobileMenu = document.getElementById("mobile-menu");
+    openBtn.addEventListener("click", function () {
+        closeBtn.classList.remove("hidden");
+        openBtn.classList.add("hidden");
+        mobileMenu.classList.remove("hidden");
+    })
+
+    closeBtn.addEventListener("click", function () {
+        openBtn.classList.remove("hidden");
+        closeBtn.classList.add("hidden");
+        mobileMenu.classList.add("hidden");
+    });
+
+    // Toggle Light Mode and Dark Mode with Tailwind
+    const sunButton = document.getElementById("sun");
+    const htmlElement = document.documentElement;
+    sunButton.addEventListener("click", function () {
+        if (htmlElement.classList.contains("dark")) {
+            htmlElement.classList.remove("dark");
+            localStorage.theme = 'light'
+        }
+        else {
+            htmlElement.classList.add("dark");
+            localStorage.theme = 'dark'
+        }
+    });
+</script>
